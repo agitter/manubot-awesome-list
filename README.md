@@ -46,3 +46,19 @@ P. A. Romero, A. Krause, F. H. Arnold
 DOI: [10.1073/pnas.1215251110](https://doi.org/10.1073/pnas.1215251110) · PMID: [23277561](https://www.ncbi.nlm.nih.gov/pubmed/23277561) · PMCID: [PMC3549130](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3549130)
 
 
+## Single-cell-pseudotime
+1. **A comparison of single-cell trajectory inference methods**  
+Wouter Saelens, Robrecht Cannoodt, Helena Todorov, Yvan Saeys  
+*Nature Biotechnology* (2019-04-01) <https://doi.org/gfxsgd>  
+DOI: [10.1038/s41587-019-0071-9](https://doi.org/10.1038/s41587-019-0071-9) · PMID: [30936559](https://www.ncbi.nlm.nih.gov/pubmed/30936559)
+
+2. **An overview of algorithms for estimating pseudotime in single-cell RNA-seq data: agitter/single-cell-pseudotime**  
+Anthony Gitter  
+(2019-07-19) <https://github.com/agitter/single-cell-pseudotime>
+
+3. **Network Inference with Granger Causality Ensembles on Single-Cell Transcriptomic Data**  
+Atul Deshpande, Li-Fang Chu, Ron Stewart, Anthony Gitter  
+*Cold Spring Harbor Laboratory* (2019-01-30) <https://doi.org/gft4bb>  
+DOI: [10.1101/534834](https://doi.org/10.1101/534834)
+
+
