@@ -19,7 +19,7 @@ base64 --decode <<< "$MANUBOT_SSH_PRIVATE_KEY" | ssh-add -
 
 # Commit message
 MESSAGE="\
-$(git log --max-count=1 --format='%s')
+CI: $(git log --max-count=1 --format='%s')
 
 This build is based on
 https://github.com/$TRAVIS_REPO_SLUG/commit/$TRAVIS_COMMIT.
