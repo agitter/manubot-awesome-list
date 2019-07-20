@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/agitter/manubot-awesome-list.svg?branch=master)](https://travis-ci.com/agitter/manubot-awesome-list)
 
 A proof of concept for using [Manubot](http://manubot.org) to automate awesome lists.
-An awesome list is a themed list of resources in the `README.md` file in the `master` brach of a GitHub repository.
+An awesome list is a themed list of resources in the `README.md` file in the `master` branch of a GitHub repository.
 
 In this repository, `README.md` is created via continuous integration and should not be edited directly.
 Edit `README-BASE.md` to update this text.
