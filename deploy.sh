@@ -37,7 +37,7 @@ $TRAVIS_COMMIT_MESSAGE
 
 # Deploy README.md to master
 git add README.md
-git commit -m $MESSAGE
+git commit -m "$MESSAGE"
 git push origin master
 
 # Workaround https://github.com/travis-ci/travis-ci/issues/8082
