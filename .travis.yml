@@ -23,7 +23,7 @@ script:
   - cat README.md
 deploy:
   provider: script
-  script: echo deploying
+  script: bash deploy.sh
   skip_cleanup: true
   on:
     branch: master
