@@ -1,0 +1,30 @@
+# Adapted from https://github.com/manubot/rootstock/blob/2a5e425650947020d2d4b49447e3f3d9718dee40/.travis.yml
+dist: trusty
+sudo: false
+language: generic
+branches:
+  only:
+    - master
+before_install:
+  - wget https://repo.continuum.io/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh
+    --output-document miniconda.sh
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - source $HOME/miniconda/etc/profile.d/conda.sh
+  - hash -r
+  - conda config
+    --set always_yes yes
+    --set changeps1 no
+install:
+  - conda env create --quiet --file environment.yml
+  - conda list --name manubot
+  - conda activate manubot
+script:
+  - bash update-readme.sh
+  - cat README.md
+deploy:
+  provider: script
+  script: echo deploying
+  skip_cleanup: true
+  on:
+    branch: master
+    condition: $TRAVIS_EVENT_TYPE = "push"
