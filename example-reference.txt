@@ -1,4 +1,0 @@
-1. **Neural networks to learn protein sequence-function relationships from deep mutational scanning data**
-Sam Gelman, Philip A. Romero, Anthony Gitter
-*bioRxiv* (2020-10-25) <https://www.biorxiv.org/content/10.1101/2020.10.25.353946v1>
-DOI: [10.1101/2020.10.25.353946](https://doi.org/10.1101/2020.10.25.353946)

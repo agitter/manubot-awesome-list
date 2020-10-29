@@ -12,7 +12,7 @@ dependencies:
   - requests=2.22.0
   - pip:
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@66c1c8733038c626ddff203b984d2e4ced943281
+    - git+https://github.com/manubot/manubot@009184667f3aa8ac2b362aa7e3991ae4951cdde6
     - isbnlib==3.9.8
     - jsonref==0.2
     - packaging==19.0
