@@ -1,6 +1,7 @@
 # See https://github.community/t/can-we-greet-with-message-on-every-new-issue-created-opened-not-just-the-first-one/18082
 # https://github.com/marketplace/actions/create-or-update-comment
 # https://github.community/t/how-to-access-the-event-that-triggered-a-workflow/17205
+# https://github.community/t/set-output-truncates-multiline-strings/16852/3
 name: Extract issue reference
 
 on:
@@ -11,9 +12,18 @@ jobs:
   reference:
     runs-on: ubuntu-latest
     steps:
-    - name: Create comment for issue
+    - name: Prepare comment body
+      id: prepare-comment
+      run: |
+        body="Line 1\n
+          Line 2\n"
+        body="${body//$'\n'/'%0A'}"
+        body="${body//$'\r'/'%0D'}"
+        echo ::set-output name=body::$body
+    - name: Post comment to issue
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{ github.event.issue.number }}
         body: |
-            The new issue has title ${{ github.event.issue.title }}.
+          The new issue has title ${{ github.event.issue.title }}.
+          ${{ steps.prepare-comment.outputs.body }}
