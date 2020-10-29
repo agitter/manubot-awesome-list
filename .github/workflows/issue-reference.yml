@@ -12,6 +12,8 @@ jobs:
   reference:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
     - name: Prepare comment body
       id: prepare-comment
       run: |
