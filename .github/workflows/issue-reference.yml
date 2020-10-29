@@ -7,7 +7,7 @@ name: Extract issue reference
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled]
 
 jobs:
   reference:
