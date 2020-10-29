@@ -13,7 +13,7 @@ The `.travis.yml`, `deploy.sh`, and `environment.yml` files were derived from <h
 
 This repository also contains a GitHub Actions workflow that uses Manubot to automatically extract reference information from the identifier in an issue title.
 The workflow only runs on issues with the label `reference`.
-See [#5](https://github.com/agitter/manubot-awesome-list/issues/5) for an example.
+See [#7](https://github.com/agitter/manubot-awesome-list/issues/7) for an example.
 
 ## Manubot
 1. **Open collaborative writing with Manubot**  
