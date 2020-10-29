@@ -23,6 +23,7 @@ jobs:
         miniconda-version: 'latest'
     - name: Prepare comment body
       id: prepare-comment
+      shell: bash --login {0}
       run: |
         body=$(manubot cite --render --format=markdown https://www.biorxiv.org/content/10.1101/2020.10.25.353946v1)
         body="${body//$'\n'/'%0A'}"
