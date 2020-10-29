@@ -1,0 +1,19 @@
+# See https://github.community/t/can-we-greet-with-message-on-every-new-issue-created-opened-not-just-the-first-one/18082
+# https://github.com/marketplace/actions/create-or-update-comment
+# https://github.community/t/how-to-access-the-event-that-triggered-a-workflow/17205
+name: Extract issue reference
+
+on:
+  issues:
+    types: [opened, edited]
+jobs:
+
+  reference:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create comment for issue
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{ github.event.issue.number }}
+        body: |
+            The new issue has title ${{ github.event.issue.title }}.
