@@ -51,4 +51,10 @@ jobs:
         issue-number: ${{ github.event.issue.number }}
         body: |
           Reference extracted for ${{ github.event.issue.title }}:
+
           ${{ steps.prepare-comment.outputs.body }}
+
+          copy/paste as
+          ```
+          ${{ steps.prepare-comment.outputs.body }}
+          ```
