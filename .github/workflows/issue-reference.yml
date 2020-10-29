@@ -2,14 +2,17 @@
 # https://github.com/marketplace/actions/create-or-update-comment
 # https://github.community/t/how-to-access-the-event-that-triggered-a-workflow/17205
 # https://github.community/t/set-output-truncates-multiline-strings/16852/3
+# https://github.community/t/do-something-if-a-particular-label-is-set/17149
 name: Extract issue reference
 
 on:
   issues:
     types: [opened, edited]
-jobs:
 
+jobs:
   reference:
+    # Conditionally run job if the issue has the label reference
+    if: github.event.label.name == 'reference'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -25,7 +28,8 @@ jobs:
       id: prepare-comment
       shell: bash --login {0}
       run: |
-        body=$(manubot cite --render --format=markdown https://www.biorxiv.org/content/10.1101/2020.10.25.353946v1)
+        id=${{ github.event.issue.title }}
+        body=$(manubot cite --render --format=markdown $id)
         body="${body//$'\n'/'%0A'}"
         body="${body//$'\r'/'%0D'}"
         echo ::set-output name=body::$body
@@ -34,5 +38,5 @@ jobs:
       with:
         issue-number: ${{ github.event.issue.number }}
         body: |
-          The new issue has title ${{ github.event.issue.title }}.
+          Reference extracted for ${{ github.event.issue.title }}:
           ${{ steps.prepare-comment.outputs.body }}
