@@ -15,10 +15,9 @@ jobs:
     - name: Prepare comment body
       id: prepare-comment
       run: |
-        body="Line 1\n
-          Line 2\n"
-        body="${body//$'\n'/'%0A'}"
-        body="${body//$'\r'/'%0D'}"
+        body=$(cat example-reference.txt)
+        #body="${body//$'\n'/'%0A'}"
+        #body="${body//$'\r'/'%0D'}"
         echo ::set-output name=body::$body
     - name: Post comment to issue
       uses: peter-evans/create-or-update-comment@v1
