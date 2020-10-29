@@ -9,6 +9,10 @@ Edit `README-BASE.md` to update this text.
 Update the reference lists in the `content` directory to add new sections or references.
 This is only a proof of concept that is not robust against errors in the scripts or merge conflicts.
 
+This repository also contains a GitHub Actions workflow that uses Manubot to automatically extract reference information from the identifier in an issue title.
+The workflow only runs on issues with the label `reference`.
+See [#5](https://github.com/agitter/manubot-awesome-list/issues/5) for an example.
+
 The `.travis.yml`, `deploy.sh`, and `environment.yml` files were derived from <https://github.com/manubot/rootstock> (CC0 1.0 license).
 ## Manubot
 1. **Open collaborative writing with Manubot**  
