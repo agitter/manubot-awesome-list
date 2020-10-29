@@ -1,3 +1,10 @@
+# A workflow that runs on issues in the repository.
+# If an issue has the label 'reference', use Manubot to extract the citation
+# information from the reference provided in the issue title and post the
+# citation as a comment.
+# Titles must be a valid identifier Manubot can recognize as described in
+# https://github.com/manubot/rootstock/blob/master/USAGE.md#citations
+#
 # See https://github.community/t/can-we-greet-with-message-on-every-new-issue-created-opened-not-just-the-first-one/18082
 # https://github.com/marketplace/actions/create-or-update-comment
 # https://github.community/t/how-to-access-the-event-that-triggered-a-workflow/17205
@@ -17,6 +24,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    # Install Manubot via conda
     - name: Install conda environment
       uses: goanpeca/setup-miniconda@v1
       with:
@@ -24,12 +32,16 @@ jobs:
         environment-file: environment.yml
         auto-activate-base: false
         miniconda-version: 'latest'
+    # Consider better error handling at this step because the Manubot call can fail
+    # if the reference is not a valid identifier
+    # The current behavior is that no comment will be posted, which is an
+    # acceptable failure mode
     - name: Prepare comment body
       id: prepare-comment
       shell: bash --login {0}
       run: |
         id=${{ github.event.issue.title }}
-        body=$(manubot cite --render --format=markdown $id)
+        body=$(manubot cite --render --format=markdown --csl=style.csl $id)
         body="${body//$'\n'/'%0A'}"
         body="${body//$'\r'/'%0D'}"
         echo ::set-output name=body::$body
