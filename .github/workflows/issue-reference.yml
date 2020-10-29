@@ -14,7 +14,7 @@ name: Extract issue reference
 
 on:
   issues:
-    types: [opened, edited, labeled]
+    types: [labeled]
 
 jobs:
   reference:
